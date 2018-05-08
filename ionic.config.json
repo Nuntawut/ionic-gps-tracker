@@ -1,0 +1,8 @@
+{
+  "name": "gpstracking",
+  "app_id": "e402b803",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
