@@ -7,8 +7,34 @@
 </ion-header>
 
 <ion-content padding>
-		<h3>Current Latitude: {{locationTracker.lat}}</h3>
-		<h3>Current Longitude: {{locationTracker.lng}}</h3>
-		<button ion-button full primary (click)="start()">Start Tracking</button>
-		<button ion-button full primary (click)="stop()">Stop Tracking</button>
+    <ion-card>
+      <ion-card-header>
+        Current Location
+      </ion-card-header>
+      <ion-card-content>
+        <p>
+          Latitude: {{locationTracker.lat}}
+        </p>
+        <p>
+          Longitude: {{locationTracker.lng}}
+        </p>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+        <ion-card-header>
+          Firebase Location
+        </ion-card-header>
+        <ion-card-content>
+          <p>
+            Latitude: {{fire_lat}}
+          </p>
+          <p>
+            Longitude: {{fire_lng}}
+          </p>
+        </ion-card-content>
+    </ion-card>
+    
+		<button ion-button block (click)="start()">Start Tracking</button>
+		<button ion-button block (click)="stop()">Stop Tracking</button>
 </ion-content>
