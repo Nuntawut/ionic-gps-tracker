@@ -1,6 +1,7 @@
 import { Injectable, NgZone } from '@angular/core';
 import { BackgroundGeolocation } from '@ionic-native/background-geolocation';
 import { Geolocation, Geoposition } from '@ionic-native/geolocation';
+import { AngularFireDatabase } from 'angularfire2/database';
 import 'rxjs/add/operator/filter';
 
 /*
@@ -19,6 +20,7 @@ export class LocationTrackerProvider {
   constructor(public backgroundGeolocation: BackgroundGeolocation, 
                 public geolocation:Geolocation,
                 public zone: NgZone, 
+                public db: AngularFireDatabase
               ) {
 
     console.log('Hello LocationTrackerProvider Provider');
@@ -43,6 +45,9 @@ export class LocationTrackerProvider {
       this.zone.run(() => {
         this.lat = location.latitude;
         this.lng = location.longitude;
+        const itemRef = this.db.object('Bus_1');
+        itemRef.update({ lat: this.lat });
+        itemRef.update({ lng: this.lng });
       });
   
     }, (err) => {
@@ -70,6 +75,9 @@ export class LocationTrackerProvider {
     this.zone.run(() => {
       this.lat = position.coords.latitude;
       this.lng = position.coords.longitude;
+      const itemRef = this.db.object('Bus_1');
+        itemRef.update({ lat: this.lat });
+        itemRef.update({ lng: this.lng });
     });
   
   });

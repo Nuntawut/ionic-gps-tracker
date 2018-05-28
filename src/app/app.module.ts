@@ -6,6 +6,10 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { BackgroundGeolocation } from '@ionic-native/background-geolocation';
 import { Geolocation } from '@ionic-native/geolocation';
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { environment } from '../environments/environment';
+
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { LocationTrackerProvider } from '../providers/location-tracker/location-tracker';
@@ -17,6 +21,8 @@ import { LocationTrackerProvider } from '../providers/location-tracker/location-
   ],
   imports: [
     BrowserModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
